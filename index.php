@@ -7,12 +7,12 @@
 <body>
 
 <form action="index.php" method="GET">
-mot clé : <input type="text" name="mcle"/><br><br>
-numero : <input type="text" name="num"/>
+KEY WORD : <input type="text" name="mcle"/><br><br>
+ID : <input type="text" name="num"/>
 <input type="submit">
 </form>
 <br>
-<h2>Request :</h2>
+<h2>REQUEST : </h2>
 
 
 
@@ -62,9 +62,8 @@ $rsp = file_get_contents($url);
 
 $rsp_obj1 = json_decode(json_encode($rsp),true);
 $rsp_obj = json_decode($rsp_obj1,true);
-echo "<br><br>";
-//var_dump($rsp_obj);
-echo "<br><br>";
+echo "<br><br><br><br>";
+
 
 
 #
@@ -76,7 +75,7 @@ if ($rsp_obj['stat'] == 'ok'){
 	for ( $i=0 ; $i < count($rsp_obj['photos']['photo']) ; $i++)
 {
 	$photo_title = $rsp_obj['photos']['photo'][$i]['title'];
-	echo "Le titre est $photo_title  <br>";
+	echo '<span style="color:red;">PHOTO '. ($i+1)." :</span>                                        $photo_title  <br>";
 }
 
 }else{
@@ -123,7 +122,7 @@ $secret = $rsp_obj["photo"]["secret"];
 
 
 echo "<br><br>";
-echo '<a href="'.$rsp_obj["photo"]["urls"]["url"][0]["_content"].'" style="color:red">lien vers la photo</a>';
+echo '<a href="'.$rsp_obj["photo"]["urls"]["url"][0]["_content"].'" style="color:red">THE IMAGE LINK</a>';
 echo "<br><br>";
 echo '<img src="https://c'.$farm.'.staticflickr.com/'.$server.'/'.$id.'_'.$secret.'_c.jpg"'.'" style="width:500px;height:500px"/>';
 echo "<br><br><br><br>";
