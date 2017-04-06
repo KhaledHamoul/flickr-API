@@ -63,7 +63,7 @@ $rsp = file_get_contents($url);
 $rsp_obj1 = json_decode(json_encode($rsp),true);
 $rsp_obj = json_decode($rsp_obj1,true);
 echo "<br><br><br><br>";
-echo "<h2>TITLES OF FOUND IMAGES  ( 100 image ) : </h2>";
+echo "<h2>TITLES OF FOUND IMAGES  ( 100 images ) : </h2>";
 
 
 
